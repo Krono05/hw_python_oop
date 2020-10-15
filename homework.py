@@ -66,3 +66,17 @@ class CashCalculator(Calculator):
                 f'{currencies[currency][1]}')
  
 if __name__ == "__main__":
+    cash_calculator = CashCalculator(1200)
+    cash_calculator.add_record(Record(amount=200, comment="кофе"))
+    cash_calculator.add_record(Record(amount=800, comment="Серёге за обед"))
+    cash_calculator.add_record(Record(amount=300, comment="бар в Танин др", date="08.11.2019"))
+    print(cash_calculator.get_today_cash_remained("rub"))
+    print(cash_calculator.get_today_cash_remained("usd"))
+    print(cash_calculator.get_week_stats())
+ 
+    calories_calculator = CaloriesCalculator(1000)
+    calories_calculator.add_record(Record(amount=500, comment="кофе"))
+    calories_calculator.add_record(Record(amount=400, comment="кофе"))
+    calories_calculator.add_record(Record(amount=300, comment="бар в Танин др", date="08.11.2019"))
+    print(calories_calculator.get_calories_remained())
+    print(calories_calculator.get_week_stats())
