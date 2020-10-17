@@ -64,17 +64,17 @@ class CashCalculator(Calculator):
             'usd': (self.USD_RATE, 'USD'),
             'eur': (self.EURO_RATE, 'Euro')
         }
-        rate, symbol = currencies[currency]
-        if currency not in currencies.keys():
+        if currency not in currencies:
             return f'Валюта не поддерживается'
+        rate, symbol = currencies[currency]
         balance = self.limit - self.get_today_stats()
         if balance == 0:
             return f'Денег нет, держись'
         if balance < 0:
             balance = abs(balance)
             return (f'Денег нет, держись: твой долг - '
-                    f'{(balance/rate):.{2}f} {symbol}')
-        return (f'На сегодня осталось {(balance/rate):.{2}f} '
+                    f'{(balance/rate):.2f} {symbol}')
+        return (f'На сегодня осталось {(balance/rate):.2f} '
                 f'{symbol}')
  
 if __name__ == "__main__":
