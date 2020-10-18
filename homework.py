@@ -48,7 +48,8 @@ class CaloriesCalculator(Calculator):
         today_stock_calories = self.limit - self.get_today_stats()
         if today_stock_calories > 0:
             return (f'Сегодня можно съесть что-нибудь ещё, '
-            f'но с общей калорийностью не более {today_stock_calories} кКал')
+                    f'но с общей калорийностью '
+                    f'не более {today_stock_calories} кКал')
         else:
             return 'Хватит есть!'
 
@@ -74,9 +75,9 @@ class CashCalculator(Calculator):
             balance = abs(balance)
             return (f'Денег нет, держись: твой долг - '
                     f'{(balance/rate):.2f} {symbol}')
-        return (f'На сегодня осталось {(balance/rate):.2f} '
-                f'{symbol}')
- 
+        return (f'На сегодня осталось {(balance/rate):.2f} {symbol}')
+
+
 if __name__ == "__main__":
     cash_calculator = CashCalculator(1200)
     cash_calculator.add_record(Record(amount=200, comment="кофе"))
